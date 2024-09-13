@@ -3,11 +3,13 @@ import HomeScreen from './screens/HomeScreen.js';
 import ProductScreen from './screens/ProductScreen.js';
 import { parseRequestUrl } from './utils.js';
 import Error404Screen from './screens/Error404Screen.js';
+import SigninScreen from './screens/SignInScreen.js';
 
 // create routes object with url as key and screen as value.
 const routes ={
     '/': HomeScreen,
     '/product/:id': ProductScreen,
+    '/signin' : SigninScreen,
 };
 
 
