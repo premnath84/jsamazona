@@ -1,7 +1,21 @@
-import data from '../data.js';
+
+//For sourcing data from backend disable data source from frontend.
+//import data from '../data.js';
+
 const HomeScreen = {
-    render: ()=>{ 
-        const {products} = data;
+    // for backend data source, make render function async
+    render: async ()=>{ 
+        //const {products} = data;
+        const response = await fetch ('http://localhost:5000/api/products', {
+            headers: {
+                'Content-Type' : 'application/json',
+            },
+        });
+        if(!response || !response.ok){
+            return `<div> Error in getting data </div>`;
+        }
+        const products = await response.json();
+        
         return `
         <ul class="products">
             ${products.map(product =>`

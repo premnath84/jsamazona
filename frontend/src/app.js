@@ -13,9 +13,10 @@ const routes ={
 };
 
 
-const router = ()=>{
+//maker router function async when data is sourced from backend
+const router = async ()=>{
     const request = parseRequestUrl();
-    console.log("load thorugh router")
+    console.log("load thorugh router");
 
     //define parseUrl. url is constructed using window location split components (after #)
     const parseUrl = 
@@ -28,9 +29,10 @@ const router = ()=>{
 
     const main = document.getElementById("main-container");
     //main.innerHTML = HomeScreen.render();
-    main.innerHTML = screen.render();
-    
+    // make scren.render function await as render() function is async (in homescreen.js)
+    main.innerHTML = await screen.render();
 };
+
 //load homepage the very first time
 window.addEventListener('load', router);
 
