@@ -1,3 +1,7 @@
+Source Credit: https://github.com/basir/node-javascript-ecommerce
+
+
+
 # JS AMAZONA
 # Amazona ECommerce Website
 ![amazona](/frontend/images/jsamazona.jpg)
