@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>JS AMAZONA</title>
-    <script type="module" src="app.js"></script> <!-- why module import is required?-->
+    <!-- <script type="module" src="app.js"></script> remove this for working with webpack-->
+    
 </head>
 <body>
 <div class="grid-container">
@@ -152,5 +153,7 @@
 
 
 </div>
+<!-- add mail.js for working with webpack. There is no file as main.js, webpack creates it automatically-->
+ <script src="main.js"></script>
 </body>
 </html>
