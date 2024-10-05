@@ -1,7 +1,16 @@
-const express = require ("express");
-const cors = require ('cors');
-const data = require('./data.js');
+// commonJS syntax 
+// const express = require ("express");
+// const cors = require ('cors');
+// const data = require('./data.js');
+
+// ES6 syntax - change to this after babel is installed
+import express from 'express';
+import cors from 'cors';
+import data from './data.js';
+
 const app = express();
+
+//ES6
 
 //initiate use of cors in express app
 app.use(cors());

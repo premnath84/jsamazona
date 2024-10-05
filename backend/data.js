@@ -1,5 +1,7 @@
 //changed "export default" to>> "module.exports = " as per common JS style
-module.exports = {
+//module.exports = {
+
+export default {
     products: [
       {
         _id: '1',
