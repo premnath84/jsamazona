@@ -1,6 +1,4 @@
-const SigninScreen = {
-    render: ()=>{
-        return `<div> Sign-in Screen </div>`
-    },
+const SignInScreen = {
+    render: ()=>`<div> Sign-in Screen </div>`,
 };
-export default SigninScreen;
+export default SignInScreen;
