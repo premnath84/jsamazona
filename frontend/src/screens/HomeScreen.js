@@ -2,23 +2,43 @@
 //For sourcing data from backend disable data source from frontend.
 //import data from '../data.js';
 
+// import axios
+import axios from 'axios';
+
+
 const HomeScreen = {
     // for backend data source, make render function async
-    render: async ()=>{ 
-        //const {products} = data;
-        const response = await fetch ('http://localhost:5000/api/products', {
-            headers: {
-                'Content-Type' : 'application/json',
-            },
-        });
-        if(!response || !response.ok){
-            return `<div> Error in getting data </div>`;
-        }
-        const products = await response.json();
-        
-        return `
+    render: async ()=>{
+      //first (worked - deprecated) >> const {products} = data; front end data source
+
+      // second (worked - deprecated) >> async await fetch;
+    //   const response = await fetch("http://localhost:5000/api/products", {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   });
+    //   if (!response || !response.ok) {
+    //     return `<div> Error in getting data </div>`;
+    //   }
+    //   const products = await response.json();
+
+      // third (now) >> axios
+      const response = await axios({
+        url: "http://localhost:5000/api/products",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response || response.statusText !== "OK") {
+        return `<div> Error in getting data </div>`;
+      }
+      const products = response.data;
+
+      return `
         <ul class="products">
-            ${products.map(product =>`
+            ${products
+              .map(
+                (product) => `
                 <li>
                     <div class="product">
                         <a href="/#/product/${product._id}">
@@ -38,7 +58,9 @@ const HomeScreen = {
                     </div>
                 </li>
 
-                `).join('\n')}
+                `
+              )
+              .join("\n")}
 
         </ul>
         `;

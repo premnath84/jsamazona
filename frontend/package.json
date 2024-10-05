@@ -3,15 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
   "scripts": {
     "_comment1": "deprecated>> start webpack-dev-server  --watch-content-base --open",
     "_comment2": "This flag is needed for compatibility with OpenSSL 3.0+",
-
     "start": "NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server --watch-content-base --open",
     "build": "NODE_OPTIONS=--openssl-legacy-provider webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
-
   },
   "scriptsComments": {
     "start": "// deprecated for older version >> start : webpack-dev-server --watch-content-base --open"
@@ -22,5 +19,8 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.7"
   }
 }
