@@ -9,4 +9,9 @@ module.exports = {
     sourceType: 'module',
     ecmaVersion: 11,
   },
+  rules: {
+    'no-console': 0;
+    'no-underscore-dangle': 0,
+    'no-nested-ternary':0,
+  }
 };

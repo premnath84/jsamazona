@@ -2,7 +2,9 @@
 // import data from '../data.js';
 
 // import axios
-import axios from 'axios';
+import axios from "axios";
+
+import Rating from "../components/Rating";
 
 const HomeScreen = {
   // for backend data source, make render function async
@@ -22,21 +24,21 @@ const HomeScreen = {
 
     // third (now) >> axios
     const response = await axios({
-      url: 'http://localhost:5000/api/products',
+      url: "http://localhost:5000/api/products",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
-    if (!response || response.statusText !== 'OK') {
-      return '<div> Error in getting data </div>';
+    if (!response || response.statusText !== "OK") {
+      return "<div> Error in getting data </div>";
     }
     const products = response.data;
 
     return `
         <ul class="products">
             ${products
-    .map(
-      (product) => `
+              .map(
+                (product) => `
                 <li>
                     <div class="product">
                         <a href="/#/product/${product._id}">
@@ -46,6 +48,12 @@ const HomeScreen = {
                             <a href="/#/product/${product._id}">
                                 ${product.name}
                             </a>
+                        </div>
+                        <div class = "product-rating">
+                          ${Rating.render({
+                            value: product.rating,
+                            text: `${product.numReviews} reviews`,
+                          })}
                         </div>
                         <div class="product-brand">
                             ${product.brand}
@@ -57,8 +65,8 @@ const HomeScreen = {
                 </li>
 
                 `
-    )
-    .join('\n')}
+              )
+              .join("\n")}
 
         </ul>
         `;
