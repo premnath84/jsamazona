@@ -5,7 +5,7 @@ const ProductScreen = {
   //render: () =>`<div> ProductScreen </div>`,
   render: async ()=> {
     const request = parseRequestUrl()
-    const Product = await getProduct  (request.id);
+    const product = await getProduct  (request.id);
     return `<h1>${product.name}</h1>`;
   },
 };
