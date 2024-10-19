@@ -31,6 +31,10 @@ const router = async () => {
   //    main.innerHTML = HomeScreen.render();
   // make scren.render function await as render() function is async (in homescreen.js)
   main.innerHTML = await screen.render();
+
+  // add scree.after_render () method to wait for user activity on "add to cart button"
+  // Notice this promise is not assigned to any variable - this might lead to issue in case of error
+  await screen.after_render ();
 };
 
 //  load homepage the very first time
